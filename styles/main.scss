@@ -1,5 +1,8 @@
 @import './shared/fonts';
 
+// Components
+@import './components/header';
+
 // import for pages
 @import './index';
 
@@ -7,6 +10,15 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Montserrat', 'Helvetica';
+}
+
+.base-page {
+  padding-top: 150px;
+  color: white;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .self-typed {
