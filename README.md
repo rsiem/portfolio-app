@@ -2,7 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, download the necessary packages:
+
+```bash
+npm install --save sass
+npm install --save axios
+npm install --save express
+npm install --save nodemon
+npm install --save cross-env
+npm install --save next-routes
+npm install --save reactstrap
+npm install --save bootstrap
+npm install --save react-typed
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
