@@ -14,6 +14,7 @@ npm install --save next-routes
 npm install --save reactstrap
 npm install --save bootstrap
 npm install --save react-typed
+npm install --save swr
 ```
 
 Then, run the development server:

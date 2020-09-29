@@ -1,9 +1,12 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
 import Link from 'next/Link';
-import axios from 'axios';
+// import { useGetData } from '@/actions';
+import { useGetPosts } from '@/actions';
 
-const Portfolios = ({ posts }) => {
+const Portfolios = () => {
+  // const { data, error, loading } = useGetData('api/v1/posts');
+  const { data, error, loading } = useGetPosts();
 
   const renderPosts = (posts) => {
     return posts.map(post =>
@@ -21,24 +24,20 @@ const Portfolios = ({ posts }) => {
     <BaseLayout>
       <BasePage>
         <h1>I am Portfolios Page</h1>
-        <ul>
-          { renderPosts(posts) }
-        </ul>
+        { loading &&
+          <p>Loading data ...</p>
+        }
+        { data &&
+          <ul>
+            { renderPosts(data) }
+          </ul>
+        }
+        { error &&
+          <div className="alert alert-danger">{error.message}</div>
+        }
       </BasePage>
     </BaseLayout>
   );
-}
-
-Portfolios.getInitialProps = async () => {
-  let posts = [];
-  try {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    posts = res.data;
-  } catch(e) {
-    console.error(e);
-  }
-  
-  return { posts: posts.slice(0, 10) };
 }
 
 export default Portfolios;
