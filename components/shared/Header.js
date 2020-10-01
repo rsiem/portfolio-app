@@ -28,7 +28,7 @@ const BSNavBrand = () => {
 }
 
 const LoginBtn = () => {
-  return <span className="nav-link port-navbar-link clickable">Login</span>
+  return <span className="nav-link port-navbar-link clickable" href="/api/v1/login">Login</span>
 }
 
 const LogoutBtn = () => {

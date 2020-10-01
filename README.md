@@ -15,9 +15,25 @@ npm install --save reactstrap
 npm install --save bootstrap
 npm install --save react-typed
 npm install --save swr
+npm install --save auth0/nextjs-auth0@0.11.0
+npm install --save dotenv-webpack
 ```
 
-Then, run the development server:
+Then, register for auth0 from:
+[https://auth0.com/](https://auth0.com/)
+
+And then create an .env.development.local in your rootfolder
+
+```text
+AUTH0_DOMAIN=<AUTH0_DOMAIN>
+AUTH0_CLIENT_ID=<AUTH0_CLIENT_ID>
+AUTH0_CLIENT_SECRET=<AUTH0_CLIENT_SECRET>
+AUTH0_REDIRECT_URI=http://localhost:3000/api/callback
+AUTH0_POST_LOGOUT_URI=http://localhost:3000/
+AUTH0_COOKIE_SECRET=<RANDOMLY_GENERATED_SECRET>
+```
+
+Run the development server:
 
 ```bash
 npm run dev
