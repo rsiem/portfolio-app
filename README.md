@@ -16,7 +16,7 @@ npm install --save bootstrap
 npm install --save react-typed
 npm install --save swr
 npm install --save auth0/nextjs-auth0@0.11.0
-npm install --save dotenv-webpack
+npm install --save dotenv-webpack@1.7.0
 ```
 
 Then, register for auth0 from:

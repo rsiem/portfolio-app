@@ -27,7 +27,7 @@
 
 import useSWR from 'swr';
 
-const fetcher = (url) =>
+export const fetcher = (url) =>
   fetch(url).then(async res => {
     const result = await res.json();
 

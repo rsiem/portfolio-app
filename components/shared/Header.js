@@ -28,14 +28,14 @@ const BSNavBrand = () => {
 }
 
 const LoginBtn = () => {
-  return <span className="nav-link port-navbar-link clickable" href="/api/v1/login">Login</span>
+  return <a className="nav-link port-navbar-link" href="/api/v1/login">Login</a>
 }
 
 const LogoutBtn = () => {
-  return <span className="nav-link port-navbar-link clickable">Logout</span>
+  return <a className="nav-link port-navbar-link" href="/api/v1/logout">Logout</a>
 }
 
-const Header = () => {
+const Header = ({user, loading}) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -63,12 +63,20 @@ const Header = () => {
           </NavItem>
         </Nav>
         <Nav navbar>
-          <NavItem className="port-navbar-item">
-            <LoginBtn />
-          </NavItem>
-          <NavItem className="port-navbar-item">
-            <LogoutBtn />
-          </NavItem>
+          { !loading &&
+            <>
+              { user &&
+                <NavItem className="port-navbar-item">
+                  <LogoutBtn />
+                </NavItem>
+              }
+              { !user &&
+                <NavItem className="port-navbar-item">
+                  <LoginBtn />
+                </NavItem>
+              }
+            </>
+          }
         </Nav>
       </Collapse>
     </Navbar>

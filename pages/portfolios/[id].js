@@ -4,14 +4,16 @@ import { withRouter } from 'next/Router';
 // import { useGetData } from '@/actions';
 import { useGetPostsById } from '@/actions'
 import { useRouter } from 'next/router';
+import { useGetUser } from '@/actions/user';
 
 const Portfolio = () => {
   const router = useRouter();
   // const { data: portfolio, error, loading } = useGetData(router.query.id ? `/api/v1/posts/${router.query.id}` : null);
-  const { data: portfolio, error, loading } = useGetPostsById(router.query.id)
+  const { data: portfolio, error, loading } = useGetPostsById(router.query.id);
+  const { data: dataU, loading: loadingU } = useGetUser();
 
   return (
-    <BaseLayout>
+    <BaseLayout user={dataU} loading={loadingU}>
       <BasePage>
         { portfolio &&
           <>
